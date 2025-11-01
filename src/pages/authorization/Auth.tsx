@@ -8,7 +8,16 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { Sparkles } from "lucide-react";
 
-const Auth = () => {
+interface User {
+  id: string;
+  email: string;
+}
+
+interface AuthProps {
+  onLogin: (user: User) => void;
+}
+
+const Auth = ({ onLogin }: AuthProps) => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
@@ -19,11 +28,18 @@ const Auth = () => {
     
     // Simulate auth - ready for Firebase/Cloud integration
     setTimeout(() => {
+      const userData = {
+        id: Math.random().toString(),
+        email: "user@college.edu",
+      };
+      
       toast({
         title: "Welcome back!",
         description: "Successfully logged in",
       });
-      navigate("/dashboard");
+      
+      onLogin(userData);
+      navigate("/select-role");
       setIsLoading(false);
     }, 1000);
   };
@@ -34,11 +50,18 @@ const Auth = () => {
     
     // Simulate auth - ready for Firebase/Cloud integration
     setTimeout(() => {
+      const userData = {
+        id: Math.random().toString(),
+        email: "user@college.edu",
+      };
+      
       toast({
         title: "Account created!",
         description: "Welcome to Campus Unite",
       });
-      navigate("/onboarding");
+      
+      onLogin(userData);
+      navigate("/select-role");
       setIsLoading(false);
     }, 1000);
   };

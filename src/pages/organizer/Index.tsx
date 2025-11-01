@@ -17,11 +17,12 @@ import {
   FiMessageCircle,
   FiSun,
   FiMoon,
+  FiLogOut,
 } from "react-icons/fi";
 import { LineChart, Line, PieChart, Pie, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import confetti from "canvas-confetti";
 
-const Index = () => {
+const Index = ({ onLogout }: { onLogout?: () => void }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [currentView, setCurrentView] = useState("dashboard");
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -217,6 +218,17 @@ const Index = () => {
                     </motion.button>
                   ))}
                 </nav>
+              </div>
+
+              {/* Logout Button */}
+              <div className="p-6 border-t border-border mt-auto">
+                <button
+                  onClick={onLogout}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-destructive/10 hover:bg-destructive/20 text-destructive transition-all font-medium"
+                >
+                  <FiLogOut className="w-5 h-5" />
+                  <span>Logout</span>
+                </button>
               </div>
             </motion.aside>
           )}

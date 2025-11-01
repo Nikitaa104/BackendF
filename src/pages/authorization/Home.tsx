@@ -42,7 +42,7 @@ const Home = () => {
                 size="lg" 
                 variant="outline"
                 className="text-lg px-8 py-6 rounded-2xl hover:scale-105 transition-transform border-2"
-                onClick={() => navigate("/dashboard")}
+                onClick={() => navigate("/select-role")}
               >
                 Explore Events
               </Button>

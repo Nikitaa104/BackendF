@@ -27,6 +27,7 @@ import {
   Sun,
   Moon,
   Palette,
+  LogOut,
 } from "lucide-react";
 import {
   BarChart,
@@ -212,7 +213,7 @@ const aiRecommendations = {
   ],
 };
 
-const Index = () => {
+const Index = ({ onLogout }: { onLogout?: () => void }) => {
   const [activeSection, setActiveSection] = useState("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [theme, setTheme] = useState("light");
@@ -494,6 +495,19 @@ const Index = () => {
             <SidebarLink icon={Bell} label="Notifications" section="notifications" />
             <SidebarLink icon={User} label="Profile" section="profile" />
           </nav>
+
+          {/* Logout Button */}
+          <div className="p-4 border-t border-border mt-auto">
+            <Button
+              onClick={onLogout}
+              variant="destructive"
+              className="w-full justify-start"
+              size="sm"
+            >
+              <LogOut size={18} className="mr-2" />
+              Logout
+            </Button>
+          </div>
 
           {/* AI Assistant */}
           <div className="p-4 m-4 glass rounded-xl">
@@ -1050,7 +1064,7 @@ const Index = () => {
                         </div>
 
                         <div className="pt-4 border-t border-border">
-                          <Button variant="destructive" className="w-full">
+                          <Button onClick={onLogout} variant="destructive" className="w-full">
                             <XCircle size={16} className="mr-2" />
                             Logout
                           </Button>
