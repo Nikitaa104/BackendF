@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ClubUnite Backend
 
 AI-powered event recommendation platform backend built with Node.js, Express, MongoDB, and JWT authentication.
@@ -150,3 +151,8 @@ TODO: Add contribution guidelines
 
 ISC
 
+=======
+
+
+**URL**: https://lovable.dev/projects/2f557f6f-08f5-47af-900a-d29812063be1
+>>>>>>> a3790d61389a4563d31547ab89deac42d6a93f86
